@@ -1,4 +1,57 @@
 
+html {
+    scroll-behavior: smooth;
+}
+
+footer {
+    text-align: center;
+    padding: 24px 0 12px 0;
+    font-size: 1rem;
+    color: #e0e7ef;
+}
+
+header h1, header h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 {
+    margin-top: 32px;
+    margin-bottom: 8px; 
+}
+
+header h2 {
+    margin-top: 0;
+    margin-bottom: 24px; 
+    font-weight: 500;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px 0 24px 0;
+    gap: 32px; /* Espaço entre os itens */
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: #fff;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover, nav a:focus {
+    background: linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+    color: #fff;
+    text-decoration: none;
+}
+
 img {
     width: 100px;
     height: 100px;
@@ -11,9 +64,187 @@ img {
     }
 }
 
+#projetos img {
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 16px 0;
+    box-shadow: 0 4px 24px rgba(60, 72, 180, 0.10);
+    cursor: zoom-in;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+#projetos img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px 0 rgba(60, 72, 180, 0.18), 0 0 16px #7C3AED33;
+}
+
 #membros {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
 }
+
+.descricao-membro {
+    margin-top: 12px;
+    font-size: 1rem;
+    color: #e0e7ef;
+    text-align: center;
+    line-height: 1.5;
+}
+
+#membros img {
+    width: 350px;
+    height: 350px;
+    border-radius: 16px;
+    justify-content: center;
+}
+
+
+/* Identidade visual do site */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%);
+    min-height: 100vh;
+    margin: 0;
+    color: #f8fafc;
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+code, pre {
+    font-family: 'Fira Code', monospace;
+    background: rgba(30, 41, 59, 0.8);
+    color: #60a5fa;
+    border-radius: 6px;
+    padding: 0.2em 0.5em;
+}
+
+#membros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(60, 72, 180, 0.10);
+    padding: 32px 24px;
+    min-width: 260px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeInUp 0.7s cubic-bezier(.39,.575,.565,1) both;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(60, 72, 180, 0.18), 0 0 16px #7C3AED33;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+}
+img:hover {
+    transform: scale(1.07) rotate(-2deg);
+}
+
+.btn {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(90deg, #3B82F6 0%, #7C3AED 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 1.6em;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #7C3AED22;
+    transition: box-shadow 0.2s, filter 0.2s;
+}
+.btn:hover {
+    filter: brightness(1.1) drop-shadow(0 0 8px #7C3AED88);
+}
+
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    stroke: #a5b4fc;
+    margin-right: 0.5em;
+}
+
+/* Animação fade-in e slide-up para cards */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Espaço em branco entre blocos */
+.section {
+    margin: 48px auto;
+    max-width: 900px;
+    padding: 0 24px;
+    text-align: justify;
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+/* Exemplo de textura geométrica sutil */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: url('data:image/svg+xml;utf8,<svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="40" width="1" height="80" fill="%237C3AED11"/><rect y="40" width="80" height="1" fill="%233B82F611"/></svg>');
+    opacity: 0.08;
+    z-index: 0;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    #membros {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90vw;
+        min-width: unset;
+        max-width: unset;
+    }
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover, a:focus {
+    color: #e19340; /* Laranja claro no hover*/
+    text-decoration: underline;
+}
+
