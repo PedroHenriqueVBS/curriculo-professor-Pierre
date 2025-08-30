@@ -1,8 +1,9 @@
-
+/*Scroll de menus suavizado*/
 html {
     scroll-behavior: smooth;
 }
 
+/*alinhando o footer ao centro*/
 footer {
     text-align: center;
     padding: 24px 0 12px 0;
@@ -10,6 +11,7 @@ footer {
     color: #e0e7ef;
 }
 
+/*ajustando os headers*/
 header h1, header h2 {
     text-align: center;
     margin-left: auto;
@@ -27,6 +29,7 @@ header h2 {
     font-weight: 500;
 }
 
+/* alinhando o menu de navegação */
 nav {
     display: flex;
     justify-content: center;
@@ -213,7 +216,7 @@ img:hover {
     line-height: 1.7;
 }
 
-/* Exemplo de textura geométrica sutil */
+/* textura geométrica sutil */
 body::before {
     content: "";
     position: fixed;
@@ -241,6 +244,8 @@ a {
     color: #fff;
     text-decoration: none;
     transition: color 0.2s;
+
+/* background em botões e links */    
 }
 
 a:hover, a:focus {
