@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Pedro Peixoto</title>
+    <title>Sobre Pedro Barbosa</title>
      <link rel="stylesheet" href="../styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -45,10 +45,15 @@
          <section class="section" id="projetos">
             <h2>Projetos</h2>
             <ul>
-                <li>PuggyConsig – Aplicativo Mobile e Desktop ( <a href="https://apps.apple.com/puggyconsig" target="_blank" rel="noopener noreferrer">link</a> )
+                    <img src="../imagens/projetos pedroB/Login.jpeg" alt="Login" class="modal-img" srcset="">
+                    <img src="../imagens/projetos pedroB/menu-1.jpeg" alt="" class="modal-img" srcset="">
+                    <img src="../imagens/projetos pedroB/menu-2.jpeg" alt="" class="modal-img" srcset="">
+                <li>
+                    PuggyConsig – Aplicativo Mobile e Desktop ( <a href="https://apps.apple.com/puggyconsig" target="_blank" rel="noopener noreferrer">link</a> )
                     Solução criada para automatizar e agilizar a venda de empréstimos consignados para corretores e correspondentes bancários. O sistema possui integração direta com as APIs dos principais bancos, oferecendo maior eficiência, segurança e rapidez no processo de contratação.
                 </li>
-
+                    <img src="../imagens/projetos pedroB/login-confiaplus.png" alt="" class="modal-img" srcset="">
+                    <img src="../imagens/projetos pedroB/dashboard-confiaplus.png" alt="" class="modal-img" srcset="">
                 <li>ConfiaPlus – Plataforma Web e Aplicativo Mobile ( <a href="https://plataforma.confiaplus.com.br" target="_blank" rel="noopener noreferrer">link</a> )
                     Desenvolvimento de uma plataforma completa para comercialização de pacotes de benefícios, incluindo seguros, telemedicina e bônus em dinheiro. Além do sistema web, foi desenvolvido um aplicativo integrado que permite ao cliente acessar seus benefícios e realizar chamadas de vídeo com médicos online.
                 </li>
@@ -56,6 +61,11 @@
                     Implementação de fluxos automatizados para processos operacionais de correspondentes bancários, utilizando n8n para automação e Excel/Power BI para análise de dados e relatórios gerenciais, resultando em redução de tempo e aumento da produtividade.
                 </li>
             </ul>
+            <!-- Modal para exibir imagem em tela cheia -->
+            <div id="imgModal" class="modal-img-bg" style="display:none;">
+                <span class="modal-close" id="modalCloseBtn">&times;</span>
+                <img class="modal-content-img" id="modalImg">
+            </div>
         </section>
         <section class="section" id="contato">
             <h2>Contato</h2>
@@ -79,5 +89,40 @@
     <footer>
         <p>&copy; 2025 - Portfólio de Alunos pelo Grupo Pedros e Washingtton</p>
     </footer>
+    <script>
+    // Modal de imagem para projetos
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeBtn = document.getElementById('modalCloseBtn');
+        document.querySelectorAll('.modal-img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            modalImg.src = '';
+            document.body.style.overflow = '';
+        };
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalImg.src = '';
+                document.body.style.overflow = '';
+            }
+        };
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                modalImg.src = '';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    </script>
 </body>
 </html>
