@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Pedro Peixoto</title>
-     <link rel="stylesheet" href="../styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Sobre Washigtton Bandeira</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Sobre Washingtton Bandeira</h1>
-      <nav>
+        <h1>Sobre Washigtton Bandeira</h1>
+        <nav>
             <a href="../index.html">Início</a>
             <a href="#sobreMim">Sobre mim</a>
             <a href="#habilidade">Habilidades</a>
@@ -18,23 +22,113 @@
             <a href="#contato">Contato</a>
         </nav>
     </header>
+
     <main>
+        <!-- SOBRE MIM -->
         <section class="section" id="sobreMim">
             <h2>Sobre mim</h2>
+            <p>
+                Ágil e responsável, capaz de realizar tarefas como organização de documentos,
+                atendimento ao cliente e apoio em atividades diárias da equipe. Com boa comunicação
+                e aptidão para aprender rapidamente novas ferramentas e procedimentos, visando
+                colaborar com a rotina da empresa.
+            </p>
         </section>
+
+        <!-- HABILIDADES -->
         <section class="section" id="habilidade">
             <h2>Habilidades</h2>
+            <ul>
+                <li>Rapidez no aprendizado de funções</li>
+                <li>Disciplina para seguir orientações</li>
+                <li>Foco na execução das tarefas</li>
+                <li>Paciência e empatia no atendimento ao público</li>
+                <li>Pontualidade para cumprir prazos</li>
+                <li>Flexibilidade para trabalhar em equipe</li>
+                <li>Comunicação clara e eficaz</li>
+                <li>Proatividade no auxílio às equipes</li>
+            </ul>
         </section>
+
+        <!-- PROJETOS / EXPERIÊNCIAS -->
         <section class="section" id="projetos">
-            <h2>Projetos</h2>
+            <h2>Histórico Profissional</h2>
+            <ul>
+                <li>
+                    <strong>Washington Center – Administrador (Jan/2022 - Jul/2024)</strong><br>
+                    - Negociação com fornecedores, buscando melhores preços e condições de pagamento.<br>
+                    - Criação de soluções para problemas administrativos, reduzindo despesas.<br>
+                    - Elaboração de relatórios e acompanhamento de processos administrativos.<br>
+                    - Controle de estoque de empresas e garantia de recursos necessários.<br>
+                    - Planejamento e organização de atividades de apoio administrativo e financeiro.<br>
+                    - Trabalho com controle fiscal.
+                </li>
+                <br>
+                <li>
+                    <strong>Assalboy – Jovem Aprendiz de Compras (Jul/2024 - Mai/2025)</strong><br>
+                    - Apoio em tarefas administrativas diárias, organização de documentos.<br>
+                    - Atendimento a clientes e esclarecimento de dúvidas.<br>
+                    - Realização de tarefas administrativas diversas e atualização de registros.<br>
+                </li>
+                <br>
+                <li>
+                    <strong>Assalboy – Promotor de Vendas (Mai/2025 - Atual)</strong><br>
+                    - Promoção e alavancagem de Vendas.<br>
+                    - Atendimento a clientes e resolução de problemas.<br>
+                    - Gestão de equipe de Vendas.<br>
+                    - Realização de tarefas administrativas diversas e atualização de registros.<br>
+                </li>
+            </ul>
         </section>
+
+        <!-- CONTATO -->
         <section class="section" id="contato">
             <h2>Contato</h2>
-            
+            <p>Email: <a href="mailto:washigttnlb@hotmail.com">washigttnlb@hotmail.com</a></p>
+            <p>Endereço: Rua Maria do Socorro Targino Araújo 201, Campina Grande - PB</p>
+            <p>Telefone: (83) 5843-2450</p>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 - Portfólio de Alunos pelo Grupo Pedros e Washingtton</p>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Rolagem suave ao clicar nos links do menu
+            document.querySelectorAll("nav a[href^='#']").forEach(link => {
+                link.addEventListener("click", e => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute("href"));
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+
+            // Destacar o link do menu conforme a seção ativa
+            const sections = document.querySelectorAll("main section");
+            const navLinks = document.querySelectorAll("nav a");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 80; // margem do header
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === "#" + current) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
+
 </html>
