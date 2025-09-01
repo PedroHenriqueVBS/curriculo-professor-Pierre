@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Pedro Peixoto</title>
-     <link rel="stylesheet" href="../styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Sobre Pedro Lira</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Sobre Pedro Lira</h1>
-      <nav>
+        <h1>Sobre Pedro Lira Bandeira</h1>
+        <nav>
             <a href="../index.html">Início</a>
             <a href="#sobreMim">Sobre mim</a>
             <a href="#habilidade">Habilidades</a>
@@ -21,20 +25,120 @@
     <main>
         <section class="section" id="sobreMim">
             <h2>Sobre mim</h2>
-        </section>
-        <section class="section" id="habilidade">
-            <h2>Habilidades</h2>
-        </section>
-        <section class="section" id="projetos">
-            <h2>Projetos</h2>
-        </section>
-        <section class="section" id="contato">
-            <h2>Contato</h2>
+            <p>
+                Desenvolvedor Back-End com experiência no desenvolvimento e integração de APIs RESTful e GraphQL em
+                Node.js, atuando com microservices, automação de processos e integração a CRMs, ERPs e plataformas de
+                mensageria.<br><br>
+                Experiência prática em deploy de aplicações e serviços em ambientes de nuvem (AWS, EC2, S3, Lambda, API
+                Gateway), utilização de Docker e bancos de dados relacionais e não-relacionais. Forte atuação em suporte
+                técnico, versionamento com Git e colaboração em times ágeis.<br><br>
+                Também já atuei na <strong>integração de IA (ChatGPT) com WhatsApp</strong>, utilizando modelos de
+                linguagem como validador e enriquecedor de respostas em fluxos automatizados de atendimento.<br><br>
+                Em busca de contribuir com soluções escaláveis e inovadoras, aplicando boas práticas de desenvolvimento
+                e DevOps.
+            </p>
         </section>
 
+        <section class="section" id="habilidade">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>Node.js, JavaScript (ES6), Express, Fastify</li>
+                <li>APIs REST e GraphQL</li>
+                <li>Microservices e automação de processos</li>
+                <li>AWS (EC2, S3, Lambda, API Gateway)</li>
+                <li>Docker e CI/CD básico</li>
+                <li>MySQL, PostgreSQL, MongoDB, Mongoose</li>
+                <li>Integração com Pipefy, Pipedrive, Asaas e Zenvia</li>
+                <li>Scrum, Kanban e OKR</li>
+                <li>Suporte Técnico Nível 2</li>
+                <li>Versionamento com Git</li>
+                <li>Idiomas: Português (Nativo), Inglês (Fluente), Italiano (Intermediário), Francês (Básico)</li>
+            </ul>
+        </section>
+
+        <section class="section" id="projetos">
+            <h2>Projetos</h2>
+            <ul>
+                <li>
+                    <img src="../imagens/projetos pedroL/chatbot.png" alt="Chatbot" class="modal-img">
+                    <strong>Integração de Chatbots</strong> – Desenvolvimento de chatbots conectados a plataformas de
+                    mensageria e sistemas externos, com automação de inscrição, pagamento e confirmação via webhooks.
+                </li>
+                <li>
+                    <img src="../imagens/projetos pedroL/apis.png" alt="APIs" class="modal-img">
+                    <strong>Integrações com APIs</strong> – Projetos em Node.js para integração com WhatsApp, Pipefy,
+                    Asaas e Google Sheets, com foco em eficiência e escalabilidade.
+                </li>
+                <li>
+                    <img src="../imagens/projetos pedroL/cloud.png" alt="Cloud Deploy" class="modal-img">
+                    <strong>Deploy em Nuvem</strong> – Experiência prática com deploy e monitoramento em ambientes AWS e
+                    Docker.
+                </li>
+            </ul>
+
+            <!-- Modal para exibir imagem em tela cheia -->
+            <div id="imgModal" class="modal-img-bg" style="display:none;">
+                <span class="modal-close" id="modalCloseBtn">&times;</span>
+                <img class="modal-content-img" id="modalImg">
+            </div>
+        </section>
+
+        <section class="section" id="contato">
+            <h2>Contato</h2>
+            <p>Email: <a href="mailto:pedrolirabandeira@gmail.com">pedrolirabandeira@gmail.com</a></p>
+            <p>Telefone: <a href="tel:+5583991199084">(83) 99119-9084</a></p>
+
+            <a href="https://www.linkedin.com/in/pedrolirabandeira" target="_blank" rel="noopener noreferrer">
+                <!-- Ícone LinkedIn -->
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="2" y="9" width="4" height="12" rx="1" />
+                    <circle cx="4" cy="4" r="2" />
+                    <path d="M8 9h4v3a4 4 0 0 1 8 0v6h-4v-6a2 2 0 0 0-4 0v6" />
+                </svg>
+                LinkedIn
+            </a>
+        </section>
     </main>
     <footer>
-            <p>&copy; 2025 - Portfólio de Alunos pelo Grupo Pedros e Washingtton</p>
+        <p>&copy; 2025 - Portfólio de Alunos pelo Grupo Pedros e Washingtton</p>
     </footer>
+
+    <script>
+        // Modal de imagem para projetos
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('modalImg');
+            const closeBtn = document.getElementById('modalCloseBtn');
+            document.querySelectorAll('.modal-img').forEach(img => {
+                img.addEventListener('click', function () {
+                    modal.style.display = 'flex';
+                    modalImg.src = this.src;
+                    modalImg.alt = this.alt;
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            closeBtn.onclick = function () {
+                modal.style.display = 'none';
+                modalImg.src = '';
+                document.body.style.overflow = '';
+            };
+            modal.onclick = function (e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    modalImg.src = '';
+                    document.body.style.overflow = '';
+                }
+            };
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    modalImg.src = '';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
