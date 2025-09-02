@@ -55,31 +55,54 @@ nav a:hover, nav a:focus {
     text-decoration: none;
 }
 
+/* Reset e estilo base para todas as imagens (evita duplicação) */
 img {
-    width: 100px;
-    height: 100px;
+    display: block;
+    max-width: 100%;
+    height: auto; /* Mantém proporção natural */
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    &:hover {
-        transform: scale(1.05);
-    }
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+    margin-bottom: 16px;
+    transition: transform 0.25s;
+}
+img:hover {
+    transform: scale(1.05) rotate(-1.5deg);
 }
 
-#projetos img {
-    width: 400px;
-    height: 320px;
+/* Galeria de projetos */
+#projetos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+}
+#projetos ul > img {
+    flex: 1 1 clamp(240px, 42vw, 420px);
+    max-width: 420px;
+    aspect-ratio: 5 / 4; /* Mantém consistência visual */
+    width: 100%;
     object-fit: cover;
-    border-radius: 16px;
-    margin: 16px 0;
+    border-radius: 20px;
+    margin: 0;
     box-shadow: 0 4px 24px rgba(60, 72, 180, 0.10);
     cursor: zoom-in;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
-#projetos img:hover {
+#projetos ul > img:hover {
     transform: scale(1.04);
     box-shadow: 0 8px 32px 0 rgba(60, 72, 180, 0.18), 0 0 16px #7C3AED33;
+}
+#projetos ul > li {
+    flex: 1 1 clamp(300px, 48ch, 560px);
+    background: rgba(17, 24, 39, 0.55);
+    padding: 16px 20px;
+    border-radius: 16px;
+    line-height: 1.55;
+    box-shadow: 0 2px 12px rgba(60, 72, 180, 0.12);
 }
 
 /* Modal de imagem em tela cheia */
@@ -138,8 +161,9 @@ img {
 }
 
 #membros img {
-    width: 350px;
-    height: 350px;
+    width: clamp(200px, 40vw, 350px);
+    aspect-ratio: 1 / 1; /* Mantém quadrado independente do tamanho */
+    height: auto; /* Altura automática para responsividade (aspect-ratio controla) */
     border-radius: 16px;
     justify-content: center;
 }
@@ -196,18 +220,7 @@ code, pre {
     box-shadow: 0 8px 32px 0 rgba(60, 72, 180, 0.18), 0 0 16px #7C3AED33;
 }
 
-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
-    margin-bottom: 16px;
-    transition: transform 0.2s;
-}
-img:hover {
-    transform: scale(1.07) rotate(-2deg);
-}
+/* (Removido bloco duplicado de img — consolidado no topo) */
 
 .btn {
     font-family: 'Montserrat', Arial, sans-serif;
@@ -278,6 +291,29 @@ body::before {
         min-width: unset;
         max-width: unset;
     }
+    #projetos ul {
+        gap: 20px;
+    }
+    #projetos ul > img {
+        flex: 1 1 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 3; /* Ajusta proporção em telas menores */
+        border-radius: 16px;
+    }
+    #projetos ul > li {
+        flex: 1 1 100%;
+    }
+}
+
+/* Ajustes adicionais para telas muito largas */
+@media (min-width: 1400px) {
+    #projetos ul { max-width: 1400px; margin-inline: auto; }
+}
+
+/* Acessibilidade: foco visível em imagens clicáveis (modal) */
+#projetos ul > img:focus {
+    outline: 3px solid #e19340;
+    outline-offset: 4px;
 }
 
 a {
