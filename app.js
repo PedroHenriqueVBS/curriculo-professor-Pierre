@@ -1,54 +1,103 @@
-// Modal functionality for project images
+// FUncionalidade de Modal
 document.addEventListener('DOMContentLoaded', function() {
-    const projectImages = document.querySelectorAll('#projetos img');
+    const imagensProjetos = document.querySelectorAll('#projetos img');
 
-    projectImages.forEach(img => {
-        img.addEventListener('click', function() {
-            // Create modal background
-            const modalBg = document.createElement('div');
-            modalBg.className = 'modal-img-bg';
-            modalBg.style.opacity = '0';
-            setTimeout(() => modalBg.style.opacity = '1', 10);
+    imagensProjetos.forEach(imagem => {
+        imagem.addEventListener('click', function() {
+            // Fundo do modal
+            const fundoModal = document.createElement('div');
+            fundoModal.className = 'modal-img-bg';
+            fundoModal.style.opacity = '0';
+            setTimeout(() => fundoModal.style.opacity = '1', 10);
 
-            // Create modal image
-            const modalImg = document.createElement('img');
-            modalImg.className = 'modal-content-img';
-            modalImg.src = this.src;
-            modalImg.alt = this.alt;
+            // Imagem dentro do modal
+            const imagemModal = document.createElement('img');
+            imagemModal.className = 'modal-content-img';
+            imagemModal.src = this.src;
+            imagemModal.alt = this.alt;
 
-            // Create close button
-            const closeBtn = document.createElement('span');
-            closeBtn.className = 'modal-close';
-            closeBtn.innerHTML = '&times;';
-            closeBtn.addEventListener('click', closeModal);
+            // Botão de fechar modal
+            const botaoFechar = document.createElement('span');
+            botaoFechar.className = 'modal-close';
+            botaoFechar.innerHTML = '&times;';
+            botaoFechar.addEventListener('click', fecharModal);
 
-            // Append elements
-            modalBg.appendChild(modalImg);
-            modalBg.appendChild(closeBtn);
-            document.body.appendChild(modalBg);
+            // Adicionar elementos no DOM
+            fundoModal.appendChild(imagemModal);
+            fundoModal.appendChild(botaoFechar);
+            document.body.appendChild(fundoModal);
 
-            // Close modal on background click
-            modalBg.addEventListener('click', function(e) {
-                if (e.target === modalBg) {
-                    closeModal();
+            // Fechar modal ao clicar no fundo
+            fundoModal.addEventListener('click', function(evento) {
+                if (evento.target === fundoModal) {
+                    fecharModal();
                 }
             });
 
-            // Close modal on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
+            // Fechar modal ao pressionar ESC
+            document.addEventListener('keydown', function(evento) {
+                if (evento.key === 'Escape') {
+                    fecharModal();
                 }
             });
 
-            function closeModal() {
-                modalBg.style.opacity = '0';
+            function fecharModal() {
+                fundoModal.style.opacity = '0';
                 setTimeout(() => {
-                    if (document.body.contains(modalBg)) {
-                        document.body.removeChild(modalBg);
+                    if (document.body.contains(fundoModal)) {
+                        document.body.removeChild(fundoModal);
                     }
                 }, 200);
             }
         });
     });
+    // Botão Voltar ao Topo
+    (function iniciarVoltarTopo(){
+        if(document.getElementById('backToTop')) return; // evita duplicar
+        const botaoVoltarTopo = document.createElement('button');
+        botaoVoltarTopo.id = 'backToTop';
+        botaoVoltarTopo.type = 'button';
+        botaoVoltarTopo.setAttribute('aria-label','Voltar ao topo');
+        botaoVoltarTopo.innerHTML = '↑';
+        document.body.appendChild(botaoVoltarTopo);
+
+        const exibirEm = 320; // px de scroll para aparecer
+        let atualizando = false;
+
+        function aoRolar(){
+            if(!atualizando){
+                window.requestAnimationFrame(()=>{
+                    const scrollAtual = window.scrollY || document.documentElement.scrollTop;
+                    if(scrollAtual > exibirEm) botaoVoltarTopo.classList.add('show'); else botaoVoltarTopo.classList.remove('show');
+                    atualizando = false;
+                });
+                atualizando = true;
+            }
+        }
+        window.addEventListener('scroll', aoRolar, {passive:true});
+        aoRolar();
+
+        botaoVoltarTopo.addEventListener('click', ()=>{
+            // Rolagem suave manual para melhor compatibilidade
+            const inicio = window.scrollY || document.documentElement.scrollTop;
+            const duracao = 560;
+            const tempoInicio = performance.now();
+            function desaceleracaoCubica(t){ return 1 - Math.pow(1 - t, 3); }
+            function quadro(agora){
+                const decorrido = agora - tempoInicio;
+                const progresso = Math.min(1, decorrido / duracao);
+                const suavizado = desaceleracaoCubica(progresso);
+                window.scrollTo(0, inicio * (1 - suavizado));
+                if(progresso < 1) requestAnimationFrame(quadro);
+            }
+            requestAnimationFrame(quadro);
+        });
+
+        // Acessibilidade: atalho Alt+SetaCima
+        document.addEventListener('keydown', (evento)=>{
+            if(evento.altKey && evento.key === 'ArrowUp'){
+                botaoVoltarTopo.click();
+            }
+        });
+    })();
 });
